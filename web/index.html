@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>データベース実験室</title><meta name="description" content="架空のお店のデータで、検索・追加・更新・削除・結合を体験できるデータベースシミュレータ。"><link rel="stylesheet" href="style.css?v=1"><script type="module" src="app.mjs?v=1"></script></head>
+<body>
+<header><a class="brand" href="./">DB <span>データベース実験室</span></a><span class="version">v1</span></header>
+<main>
+<div class="intro"><div><span class="badge">DATABASE PLAYGROUND</span><h1>データを動かす。<br class="mobile">しくみが見える。</h1><p>京都の架空の雑貨店で、データベースを触ってみよう。</p></div><div class="sample"><span>サンプルデータ</span><strong>余白雑貨店</strong><small>顧客・商品・注文</small></div></div>
+<div class="toolbar"><div class="tabs" role="group" aria-label="実験モード"><button data-mode="guided" aria-pressed="true">操作で試す</button><button data-mode="sql" aria-pressed="false">SQLを試す</button><button data-mode="relations" aria-pressed="false">つながり</button></div><div class="utilities"><button id="undo" disabled>ひとつ戻す</button><button id="reset" disabled>初期データに戻す</button></div></div>
+<div id="notice" class="notice" role="status">データベースを準備しています…</div><button id="retry" hidden>もう一度読み込む</button>
+<div class="workspace">
+<section class="controls card" aria-label="データベース操作">
+<div class="sectionlabel"><span class="step">01</span><h2 id="controlTitle">何をしてみる？</h2></div>
+<div id="guided">
+<label class="field">扱うテーブル<select id="tableSelect"><option value="customers">顧客 customers</option><option value="products">商品 products</option><option value="orders">注文 orders</option></select></label>
+<div class="actions" role="group" aria-label="操作"><button data-action="search" aria-pressed="true">検索</button><button data-action="add" aria-pressed="false">追加</button><button data-action="update" aria-pressed="false">更新</button><button data-action="delete" aria-pressed="false">削除</button></div>
+<p id="actionHint" class="hint"></p><form id="form"><div id="fields"></div><details class="sqlpreview"><summary>この操作をSQLで見る</summary><pre id="generated"></pre></details><button class="primary" id="runGuided" type="submit" disabled>検索を実行 →</button></form>
+</div>
+<div id="sqlPanel" hidden><label class="field">サンプルから選ぶ<select id="example"></select></label><p id="exampleHint" class="hint"></p><label class="field" for="sql">SQLを自由に書き換える</label><textarea id="sql" rows="9" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off"></textarea><p class="micro">1文ずつ実行。SELECT / INSERT / UPDATE / DELETEに対応。</p><button id="runSQL" class="primary" disabled>SQLを実行 →</button></div>
+<div id="relations" hidden><p class="hint">注文のIDを選ぶと、どの顧客・商品につながるか分かります。</p><label class="field">調べる注文<select id="orderSelect"></select></label><div id="relationCards"></div><button id="join" class="primary" disabled>名前を結合してみる →</button><p class="micro">IDは行の目印。「顧客ID」「商品ID」が別の表を参照します。</p></div>
+</section>
+<section class="data card" aria-label="データと実行結果"><div class="sectionlabel"><span class="step">02</span><h2>データはどうなった？</h2></div>
+<div class="tabletabs" role="group" aria-label="表示する表"><button data-table="customers" aria-pressed="true">顧客 <span id="n-customers">—</span></button><button data-table="products" aria-pressed="false">商品 <span id="n-products">—</span></button><button data-table="orders" aria-pressed="false">注文 <span id="n-orders">—</span></button></div>
+<p id="tableHint" class="hint"></p><div class="tablewrap" tabindex="0" aria-label="データ表。横にスクロールできます"><table id="dataTable"></table></div><p class="micro">横にスクロールできます。IDのボタンを押すと、その行を更新できます。</p>
+<div id="outcome" hidden><div class="outcomehead"><h3 id="resultTitle">実行結果</h3><span id="resultMeta"></span></div><div id="diff"></div><div class="tablewrap" tabindex="0" aria-label="SQLの実行結果"><table id="resultTable"></table></div><p id="resultNote" class="hint"></p></div>
+</section>
+</div>
+<details class="learn"><summary>データベースの基本と、この実験室について</summary><div class="glossary"><p><strong>テーブル＝種類ごとの表</strong>顧客と商品を別の表に整理します。1行が1件、列が名前や価格などの項目です。</p><p><strong>主キー＝重複しない目印</strong>このサンプルではidです。同じ名前の人がいても、IDで区別できます。</p><p><strong>外部キー＝ほかの表への参照</strong>注文のcustomer_idは顧客のidを参照します。存在しない顧客の注文は登録できません。</p><p><strong>SQL＝データへの指示文</strong>SELECTで検索、INSERTで追加、UPDATEで更新、DELETEで削除。JOINで表をつなぎます。</p></div><p>すべて架空のデータです。この端末のブラウザ内でSQLiteが動きます。変更はこのブラウザに保存され、他の人と共有されません。保存が使えない場合は画面でお知らせします。在庫は独立した値で、注文を追加しても自動で減りません。</p><p>表の作成・削除やサーバー接続は対象外です。各表と結果は最大500行。操作が長引く場合は中断し、実行前のデータへ戻します。「ひとつ戻す」はこのページを開いている間の直近10回までです。</p><a href="https://sql.js.org/">SQLite / sql.js</a></details>
+<footer><span id="saveState">保存状態を確認中</span><a href="https://github.com/gakkii415/database-playground">ソースコード</a></footer>
+</main>
+</body></html>

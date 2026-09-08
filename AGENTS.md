@@ -16,3 +16,9 @@
 - リポジトリ構成、依存関係、恒常文書は必要最小限に保つ。
 
 <!-- repository-creator:managed:end -->
+
+## Project
+
+- mainを直接編集せず、作業ブランチからPRで反映する。
+- GitHub PagesのURLとvNを成果物の報告に併記する。
+- npm testで本物のSQLiteとWorkerランタイムを検証する。DOM／実画面テストとは区別する。

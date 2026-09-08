@@ -348,16 +348,18 @@ Yesの場合、装飾を追加する前に、構成、情報階層、コンテ�
 
 <!-- repository-creator:managed:end -->
 
-## Project Direction
+## Project Direction — Jitter
 
-- Product / users / primary task:
-- Context of use / target devices:
-- Desired impression:
-- Information density / hierarchy:
-- Reference products / source URLs:
-- Selected reference dimensions / what to borrow:
-- What not to copy / avoid:
-- Structural direction:
-- Typography / color / spacing / shape direction:
-- Motion / responsive direction:
-- Durable design decisions:
+参照は会話内のユーザー提供Jitter全文。ブラウザ観察済みとは扱わない。前のYOLOアプリと配色・丸みを共有する。
+
+操作＋データの2ペインと、縦のチュートリアルを比較し、任意の操作にすぐ取り組める2ペインを採用。スマホは操作を先に置き、結果へ実行後に移動。説明は折りたたみ、3モードで長い教材スクロールを避ける。
+
+- canvas #f2f1f3、card #ffffff、ink #19171c、secondary #6e6e73、border #e5e4e7。
+- 主実行のみviolet #7a40ed。選択タブはink、関係する注文はlilac #cab3f8。追加行の淡い青と変更行の淡い紫はテキスト差分を伴う。
+- 40px角丸カード、26px入力、50pxボタン。4層の拡散影を作業面に使用。スマホのカードは32pxで表の領域を確保。
+- 日本語見出し40px／スマホ30px・800、UI13–16px、数値tabular。Interと端末サンセリフ。外部フォント取得を起動の前提にしない。
+- max-width1200px相当、左360px操作／右可変のデータ表。表だけ横スクロール。フォーム44px以上、タッチでID選択可能。
+- 固有表現は「操作→生成SQL→変化した行」と、注文を起点に参照先が見える関係カード。飾りの写真、ヒーロー広告、偽の指標を作らない。
+- 動きはボタンの押下のみ、prefers-reduced-motionを尊重する。
+
+Sitesスキルの制約により未依頼のブラウザ／画面QAは実施しない。コード・SQLiteの検証と画面の見た目の確認を混同しない。
