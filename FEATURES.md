@@ -46,11 +46,10 @@
 
 ## Project Feature Maturity
 
-- Product / users / core outcome:
-- Current maturity:
-- Core feature set / completion criteria:
-- Next target state:
-- Expansion Set:
-- Deferred or rejected items / reasons:
-- Important flows / states / data decisions:
-- Durable feature decisions:
+日本語でデータベース操作を体験する入門シミュレータ。フォームCRUD、SQL実行、参照関係、実行差分、保存・10回取り消し・初期化までを提供。
+
+実行エンジンはsql.js 1.13.0 / SQLite。独立Workerで8秒の実行期限、初期化20秒。SQL1文・10,000文字、各テーブル／結果500行。エラーはロールバック。export後にも外部キーを再有効化する。保存はlocalStorage、共有・認証・実サーバー接続なし。DDL・PRAGMA等は対象外。
+
+UIの入力はSQL文字列のクォートをエスケープ。テーブル／カラム名は定義済みスキーマの許可リスト。出力文字列をHTMLエスケープする。空データ、エラー、読込失敗時に初期化へ到達可能にする。
+
+未実装の高度なDB管理・複数ユーザー・トランザクションの自由編集は、入門体験を複雑にするため対象外。注文追加と在庫更新は連動させず明記。

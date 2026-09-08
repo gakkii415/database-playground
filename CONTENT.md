@@ -48,12 +48,10 @@
 
 ## Project Content Maturity
 
-- Content value / audience / use context:
-- Content types / structure / quality bar:
-- Current maturity / coverage / depth:
-- Core content set / completion criteria:
-- Next target state:
-- Expansion Set:
-- Deferred or rejected areas / reasons:
-- Sources / freshness / maintenance:
-- Durable content decisions:
+架空の京都の雑貨店「余白雑貨店」。顧客8件、商品8件、注文12件。すべて自作の架空データであり実在の顧客情報ではない。
+
+フォームの基本CRUDからSQLのWHERE／ORDER BY／LIMIT／JOIN／SUM・GROUP BY／LEFT JOIN・NULLへ進める。重複主キーと存在しない外部キーの失敗例を含む7例。日本語の項目名と英語のSQL列名を併記し、解説は操作の近くに置く。
+
+金額はサンプル商品価格と購入時単価。購入時単価を注文に保持し、現在の商品価格の変更で過去の購入額が変わらない。注文1行は1商品の購入明細。日付は固定サンプル。語彙解説はテーブル／主キー／外部キー／SQL。
+
+SQLite APIの参照：https://sql.js.org/documentation/Database.html 。対象範囲を超える実システムの運用解説を広げない。
